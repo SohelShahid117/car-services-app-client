@@ -10,15 +10,15 @@ const BookingsOrder = () => {
   console.log(user);
   const url = `http://localhost:3000/allBookingsOrder?email=${user?.email}`;
 
-  // useEffect(() => {
-  //   axios
-  //     .get(url)
-  //     .then((result) => {
-  //       console.log(result.data);
-  //       setBookings(result.data);
-  //     })
-  //     .then((err) => console.log(err));
-  // }, []);
+  useEffect(() => {
+    axios
+      .get(url)
+      .then((result) => {
+        console.log(result.data);
+        setBookings(result.data);
+      })
+      .then((err) => console.log(err));
+  }, []);
 
   // useEffect(() => {
   //   fetch(url)
@@ -29,15 +29,16 @@ const BookingsOrder = () => {
   //     });
   // }, []);
 
-  useEffect(() => {
-    const getAllBookingOrder = async () => {
-      const responseData = await axios.get(url, { withCredentials: true });
-      console.log(responseData);
-      console.log(responseData.data);
-      setBookings(responseData.data);
-    };
-    getAllBookingOrder();
-  }, []);
+  // useEffect(() => {
+  //   const getAllBookingOrder = async () => {
+  //     // const responseData = await axios.get(url, { withCredentials: true });
+  //     const responseData = await axios.get(url);
+  //     console.log(responseData);
+  //     console.log(responseData.data);
+  //     setBookings(responseData.data);
+  //   };
+  //   getAllBookingOrder();
+  // }, []);
   console.log(bookings);
   console.log(status);
 
